@@ -13,6 +13,10 @@ export class AuthService {
   }
 
   register(user) {
+    this.http.post('http://localhost:3300/api/auth', user)
+      .subscribe((data: any) => {
+        console.log(data);
+      });
     console.log('AuthService - register method: ', user);
   }
 }
