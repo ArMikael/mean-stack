@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+// import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -12,6 +16,8 @@ import { LoginComponent } from './auth/login/login.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -28,7 +34,11 @@ import { LoginComponent } from './auth/login/login.component';
         redirectTo: ''
       }
 
-    ])
+    ]),
+    // MatInputModule,
+    // MatButtonModule,
+    // MatSelectModule,
+    // MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
