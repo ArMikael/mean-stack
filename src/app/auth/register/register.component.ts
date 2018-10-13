@@ -9,7 +9,7 @@ import { FormGroup, FormControl, Validators, ValidationErrors } from '@angular/f
 })
 export class RegisterComponent implements OnInit {
 
-  public userForm: any;
+
 
   constructor(private authService: AuthService) { }
 
@@ -22,12 +22,12 @@ export class RegisterComponent implements OnInit {
     password: new FormControl('', [Validators.required]),
   });
 
-  get fullname(): any { return this.userForm.get('fullname'); }
+  get fullName(): any { return this.userForm.get('fullName'); }
   get email(): any { return this.userForm.get('email'); }
   get password(): any { return this.userForm.get('password'); }
 
   register() {
-    if (this.userForm.invalid()) { return; }
+    if (!this.userForm.valid()) { return; }
 
     this.authService.register();
   }

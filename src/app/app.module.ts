@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
 
 
@@ -20,6 +20,7 @@ import { RegisterComponent } from './auth/register/register.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -29,6 +30,11 @@ import { RegisterComponent } from './auth/register/register.component';
       {
         path: 'login',
         component: LoginComponent
+      },
+
+      {
+        path: 'register',
+        component: RegisterComponent
       },
 
       {
