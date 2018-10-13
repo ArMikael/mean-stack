@@ -1,9 +1,9 @@
 <h2>Register</h2>
-<div [formGroup]="userForm">
-  <form>
+<div>
+  <form [formGroup]="userForm">
     <label for="fullName">Full Name</label>
-    <input id="fullName" type="text" placeholder="Fullname" formControlName="fullname"
-           name="fullname" required>
+    <input id="fullName" type="text" placeholder="Full name" formControlName="fullName"
+           name="fullName" required>
 
     <label for="email">Email</label>
     <input id="email" type="text" placeholder="Email" formControlName="email"
@@ -13,7 +13,7 @@
     <input id="password" type="text" placeholder="Password" formControlName="password"
            type="password" name="password" required>
 
-    <button (click)="register()" color="primary">Register</button>
+    <button (click)="register()">Register</button>
     <span>Already have an account ? <a [routerLink]="['/login']">login</a> here</span>
   </form>
 </div>

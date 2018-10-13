@@ -9,27 +9,21 @@ import { FormGroup, FormControl, Validators, ValidationErrors } from '@angular/f
 })
 export class RegisterComponent implements OnInit {
 
-
+  userForm = new FormGroup({
+    fullName: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required]),
+  });
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
-
-  userForm = new FormGroup({
-    fullname: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required]),
-  });
-
-  get fullName(): any { return this.userForm.get('fullName'); }
-  get email(): any { return this.userForm.get('email'); }
-  get password(): any { return this.userForm.get('password'); }
-
+  
   register() {
-    if (!this.userForm.valid()) { return; }
+    // if (!this.userForm.valid) { return; }
 
-    this.authService.register();
+    this.authService.register(this.userForm.value);
   }
 
 }

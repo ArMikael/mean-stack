@@ -8,11 +8,11 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  login() {
-    console.log('login method');
+  login(user) {
+    console.log('AuthService - login method: ', user);
   }
 
-  register() {
-    console.log('register method');
+  register(user) {
+    console.log('AuthService - register method: ', user);
   }
 }
