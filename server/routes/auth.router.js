@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Joi = require('joi');
+const { User } = require('../models/user.model');
 
 router.get('/', async (req, res) => {
   res.status(200).send('Welcome to the AUTH');
@@ -9,11 +10,16 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    let { error } = await validateUser(req.body);
-    if (error) { return res.status(400).send('Wrong user parameters: ', error.details[0].message); }
-
-    res.status(200).send('POST OK.');
     console.log('Auth POST');
+    
+    let { error } = await validateUser(req.body);
+    if (error) return res.status(400).send('Wrong user parameters: ', error.details[0].message);
+
+    let user = await User.findOne({ email: req.body.email });
+    if (!user) return res.status(400).send('Invalid email or password.');
+
+    const token = await user.generateAuthToken();
+    res.header('x-auth-token', token).status(200).send('POST OK.');
   }
 
   catch(ex) {
