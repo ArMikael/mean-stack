@@ -29,9 +29,8 @@ router.post('/', async (req, res) => {
 
   function validateUser(newUser) {
     const userSchema = {
-      fullName: Joi.string().min(3).required(),
-      email: Joi.string().email().required,
-      password: Joi.string.min(5).required()
+      email: Joi.string().email().required(),
+      password: Joi.string().min(5).required()
     };
 
     return Joi.validate(newUser, userSchema);
