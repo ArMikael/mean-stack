@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     console.log('Auth POST');
-    
+
     let { error } = await validateUser(req.body);
     if (error) return res.status(400).send('Wrong user parameters: ', error.details[0].message);
 
