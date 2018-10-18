@@ -21,17 +21,18 @@ router.post('/', async (req, res) => {
    let { error } = await validateUser(req.body);
    if (error) return res.status(400).send('Wrong user parameters: ', error.details[0].message);
 
-   let user = User.findOne({ email: req.body.email });
+   let user = await User.findOne({ email: req.body.email });
    if (user) return res.status(400).send('User already registered.');
 
    user = new User(_.pick(req.body, ['fullName', 'email', 'password']));
 
    const salt = await bcrypt.genSalt(10);
    user.password = await bcrypt.hash(user.password, salt);
+   console.log(user);
 
    await user.save();
 
-   res.send(_.pick(user, ['_id', 'name', 'email']));
+   res.send(_.pick(user, ['_id', 'fullName', 'email']));
  }
 
  catch(ex) {
