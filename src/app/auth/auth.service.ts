@@ -13,7 +13,7 @@ export class AuthService {
   }
 
   register(user) {
-    this.http.post('http://localhost:3300/api/auth', user)
+    this.http.post('http://localhost:3300/api/user', user)
       .subscribe((data: any) => {
         console.log(data);
       });
