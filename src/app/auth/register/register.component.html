@@ -1,6 +1,6 @@
 <h2>Register</h2>
 <div>
-  <form [formGroup]="userForm">
+  <form [formGroup]="userForm" (submit)="register()">
     <label for="fullName">Full Name</label>
     <input id="fullName" type="text" placeholder="Full name" formControlName="fullName"
            name="fullName" required>
@@ -13,7 +13,7 @@
     <input id="password" type="text" placeholder="Password" formControlName="password"
            type="password" name="password" required>
 
-    <button (click)="register()">Register</button>
+    <button type="submit">Register</button>
     <span>Already have an account ? <a [routerLink]="['/login']">login</a> here</span>
   </form>
 </div>
