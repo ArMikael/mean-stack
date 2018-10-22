@@ -11,10 +11,16 @@ export class AuthService {
 
   login(user) {
     console.log('AuthService - login method: ', user);
+
+    this.http.post( environment.serverUrl + 'api/auth', user)
+      .subscribe((data: any) => {
+        console.log(data);
+      });
+    console.log('AuthService - register method: ', user);
   }
 
   register(user) {
-    this.http.post( environment.serverUrl + 'api/auth', user)
+    this.http.post( environment.serverUrl + 'api/user', user)
       .subscribe((data: any) => {
         console.log(data);
       });
