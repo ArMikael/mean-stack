@@ -18,6 +18,12 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
+            "fileReplacements": [
+              {
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.dev.ts"
+              }
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -28,6 +34,14 @@
             "scripts": []
           },
           "configurations": {
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -53,8 +67,11 @@
             "browserTarget": "mean-stack:build"
           },
           "configurations": {
-            "production": {
-              "browserTarget": "mean-stack:build:production"
+            "prod": {
+              "browserTarget": "mean-stack:build:prod"
+            },
+            "dev": {
+              "browserTarget": "mean-stack:build:dev"
             }
           }
         },

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AuthService {
   }
 
   register(user) {
-    this.http.post('http://localhost:3300/api/auth', user)
+    this.http.post( environment.serverUrl + 'api/auth', user)
       .subscribe((data: any) => {
         console.log(data);
       });
