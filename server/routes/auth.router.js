@@ -10,16 +10,19 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    console.log('Auth POST');
-
     let { error } = await validateUser(req.body);
     if (error) return res.status(400).send('Wrong user parameters: ', error.details[0].message);
 
     let user = await User.findOne({ email: req.body.email });
     if (!user) return res.status(400).send('Invalid email or password.');
 
+    console.log(user.password, req.body.password);
+    if (user.password !== req.body.password) {
+      return res.status(400).send('Invalid Email or password.');
+    }
+
     const token = await user.generateAuthToken();
-    res.header('x-auth-token', token).status(200).send('POST OK.');
+    res.header('x-auth-token', token).status(200).send('The user successfully authenticated.');
   }
 
   catch(ex) {
@@ -27,13 +30,13 @@ router.post('/', async (req, res) => {
     res.send(ex.message);
   }
 
-  function validateUser(newUser) {
+  function validateUser(authUser) {
     const userSchema = {
       email: Joi.string().email().required(),
-      password: Joi.string().min(5).required()
+      password: Joi.string().required()
     };
 
-    return Joi.validate(newUser, userSchema);
+    return Joi.validate(authUser, userSchema);
   }
 
 });
