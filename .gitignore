@@ -39,3 +39,4 @@ testem.log
 Thumbs.db
 server/config/private-config.js
 server/node_modules/
+server/package-lock.json
