@@ -1,8 +1,18 @@
 <h2>Login</h2>
-<form #authForm="">
-  <label for="email">Email</label>
-  <input id="email" type="text">
+<div>
+  <form [formGroup]="authForm" (submit)="login()">
+    <label for="email">Email</label>
+    <input id="email" type="text" placeholder="Email" formControlName="email"
+           name="email" required>
 
-  <label for="password">Password</label>
-  <input id="password" type="text">
-</form>
+    <label for="password">Password</label>
+    <input id="password" type="password" placeholder="Password" formControlName="password"
+           name="password" required>
+
+    <button type="submit">Register</button>
+    <span>
+      Don't have an account?
+      <a [routerLink]="['/register']">register here</a>
+    </span>
+  </form>
+</div>

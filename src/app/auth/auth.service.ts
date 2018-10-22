@@ -10,13 +10,11 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(user) {
-    console.log('AuthService - login method: ', user);
-
     this.http.post( environment.serverUrl + 'api/auth', user)
       .subscribe((data: any) => {
         console.log(data);
       });
-    console.log('AuthService - register method: ', user);
+    console.log('AuthService - login method: ', user);
   }
 
   register(user) {
