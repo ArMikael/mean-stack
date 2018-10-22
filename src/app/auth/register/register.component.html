@@ -1,23 +1,26 @@
-<h2>Register</h2>
-<div>
+<div class="register-component form-container">
+  <h2 class="form-title">Register</h2>
+
   <form [formGroup]="userForm" (submit)="register()">
-    <label for="fullName">Full Name</label>
-    <input id="fullName" type="text" placeholder="Full name" formControlName="fullName"
+    <label class="form-label" for="fullName">Full Name</label>
+    <input class="form-input" id="fullName" type="text" placeholder="Full name" formControlName="fullName"
            name="fullName" required>
 
-    <label for="email">Email</label>
-    <input id="email" type="text" placeholder="Email" formControlName="email"
+    <label class="form-label" for="email">Email</label>
+    <input class="form-input" id="email" type="text" placeholder="Email" formControlName="email"
            name="email" required>
 
-    <label for="password">Password</label>
-    <input id="password" type="password" placeholder="Password" formControlName="password"
+    <label class="form-label" for="password">Password</label>
+    <input class="form-input" id="password" type="password" placeholder="Password" formControlName="password"
            name="password" required>
 
-    <button type="submit">Register</button>
-    <span>
+    <button class="form-button" type="submit">Register</button>
+    <div class="form-paragraph">
       Already have an account?
-      <a [routerLink]="['/login']">login here</a>
-    </span>
+      <div>
+        <a class="app-link" [routerLink]="['/login']">Login here</a>
+      </div>
+    </div>
   </form>
 </div>
 

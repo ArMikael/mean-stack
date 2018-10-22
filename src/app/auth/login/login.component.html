@@ -1,18 +1,25 @@
-<h2>Login</h2>
-<div>
+<div class="login-component form-container">
+  <h2 class="form-title">Login</h2>
+
   <form [formGroup]="authForm" (submit)="login()">
-    <label for="email">Email</label>
-    <input id="email" type="text" placeholder="Email" formControlName="email"
-           name="email" required>
+    <fieldset class="form-row">
+      <label class="form-label" for="email">Email</label>
+      <input class="form-input" id="email" type="text" placeholder="Email" formControlName="email"
+             name="email" required>
+    </fieldset>
 
-    <label for="password">Password</label>
-    <input id="password" type="password" placeholder="Password" formControlName="password"
-           name="password" required>
+    <fieldset class="form-row">
+      <label class="form-label" for="password">Password</label>
+      <input class="form-input" id="password" type="password" placeholder="Password" formControlName="password"
+             name="password" required>
+    </fieldset>
 
-    <button type="submit">Register</button>
-    <span>
+    <button class="form-button" type="submit">Register</button>
+    <div class="form-paragraph">
       Don't have an account?
-      <a [routerLink]="['/register']">register here</a>
-    </span>
+      <div>
+        <a class="app-link" [routerLink]="['/register']">Register here</a>
+      </div>
+    </div>
   </form>
 </div>
