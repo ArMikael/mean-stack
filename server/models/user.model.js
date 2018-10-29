@@ -18,6 +18,7 @@ const UserSchema = new mongoose.Schema({
   }
 });
 
+// Don't change to arrow function to save the context for "this"
 UserSchema.methods.generateAuthToken = function () {
   return jwt.sign({ _id: this._id }, privateConfig.secretKey);
 };
