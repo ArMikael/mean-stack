@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Joi = require('joi');
+const bcrypt = require('bcrypt');
 const { User } = require('../models/user.model');
 
 router.get('/', async (req, res) => {
@@ -16,10 +17,8 @@ router.post('/', async (req, res) => {
     let user = await User.findOne({ email: req.body.email });
     if (!user) return res.status(400).send('Invalid email or password.');
 
-    console.log(user.password, req.body.password);
-    if (user.password !== req.body.password) {
-      return res.status(400).send('Invalid Email or password.');
-    }
+    const validPassword = await bcrypt.compare(req.body.password, user.password);
+    if (!validPassword) return res.status(400).send('Invalid Email or password.');
 
     const token = await user.generateAuthToken();
     res.header('x-auth-token', token).status(200).send('The user successfully authenticated.');
