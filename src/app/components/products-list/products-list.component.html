@@ -1,3 +1,8 @@
-<p>
-  products-list works!
-</p>
+<h2>
+  Current status: {{ currentStatus }}
+</h2>
+
+<h3>Set status</h3>
+<button (click)="setNewStatus('pending')">Pending</button>
+<button (click)="setNewStatus('approved')">Approved</button>
+<button (click)="setNewStatus('declined')">Declined</button>
