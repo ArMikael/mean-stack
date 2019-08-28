@@ -3,18 +3,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
-
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { ProductsListComponent } from './components/products-list/products-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProductsListComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,15 +38,16 @@ import { RegisterComponent } from './auth/register/register.component';
       },
 
       {
+        path: 'products-list',
+        component: ProductsListComponent
+      },
+
+      {
         path: '**',
         redirectTo: ''
       }
 
-    ]),
-    // MatInputModule,
-    // MatButtonModule,
-    // MatSelectModule,
-    // MatIconModule
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
