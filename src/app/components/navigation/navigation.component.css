@@ -1,0 +1,22 @@
+.navigation-list {
+  width: 200px;
+  list-style: none;
+  padding: 0;
+}
+
+.navigation-item {
+  margin-bottom: 1px;
+}
+
+.navigation-link {
+  display: block;
+  padding: 4px;
+  background-color: beige;
+  color: darkslategray;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid gray;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}

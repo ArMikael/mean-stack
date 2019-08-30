@@ -9,6 +9,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { InputFormatDirective } from './directives/input-format.directive';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { InputFormatDirective } from './directives/input-format.directive';
     RegisterComponent,
     ProductsListComponent,
     InputFormatDirective,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
