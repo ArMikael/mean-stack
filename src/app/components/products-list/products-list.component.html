@@ -8,5 +8,5 @@
 <button (click)="setNewStatus('declined')">Declined</button>
 
 <h3>Add new product</h3>
-<input type="text" placeholder="Product name" appInputFormat>
-<input type="text" placeholder="Product type" appInputFormat>
+<input type="text" placeholder="Product name" [appInputFormat]="'uppercase'">
+<input type="text" placeholder="Product type" [appInputFormat]>
