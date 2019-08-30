@@ -3,7 +3,7 @@
 </p>
 <ul class="navigation-list">
   <li class="navigation-item" *ngFor="let route of navigationRoutes">
-    <a [href]="route.path" class="navigation-link">
+    <a [routerLink]="route.path" class="navigation-link">
       {{ route.title }}
     </a>
   </li>
