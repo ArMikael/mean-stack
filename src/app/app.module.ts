@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
+import { InputFormatDirective } from './directives/input-format.directive';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ProductsListComponent } from './components/products-list/products-list.
     LoginComponent,
     RegisterComponent,
     ProductsListComponent,
+    InputFormatDirective,
   ],
   imports: [
     BrowserModule,
@@ -22,11 +24,6 @@ import { ProductsListComponent } from './components/products-list/products-list.
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      {
-        path: '',
-        component: AppComponent
-      },
-
       {
         path: 'login',
         component: LoginComponent
