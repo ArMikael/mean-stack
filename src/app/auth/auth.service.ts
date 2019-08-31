@@ -24,4 +24,8 @@ export class AuthService {
       });
     console.log('AuthService - register method: ', user);
   }
+
+  isLoggedIn() {
+    return false;
+  }
 }
