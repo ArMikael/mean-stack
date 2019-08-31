@@ -10,6 +10,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { InputFormatDirective } from './directives/input-format.directive';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { ShortTextPipe } from './pipes/short-text.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     ProductsListComponent,
     InputFormatDirective,
     NavigationComponent,
+    ShortTextPipe,
   ],
   imports: [
     BrowserModule,

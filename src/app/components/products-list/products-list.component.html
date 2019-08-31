@@ -10,3 +10,10 @@
 <h3>Add new product</h3>
 <input type="text" placeholder="Product name" [appInputFormat]="'uppercase'">
 <input type="text" placeholder="Product type" [appInputFormat]>
+
+<div class="product-description">
+  <h2>{{ productDescription | shortText:70 }}</h2>
+  <p class="short-description">
+    {{ productDescription }}
+  </p>
+</div>

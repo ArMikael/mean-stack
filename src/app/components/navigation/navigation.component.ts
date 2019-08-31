@@ -15,6 +15,10 @@ export class NavigationComponent implements OnInit {
       path: 'login'
     },
     {
+      title: 'Register',
+      path: 'register'
+    },
+    {
       title: 'Products List',
       path: 'products-list'
     }
