@@ -5,13 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { InputFormatDirective } from './directives/input-format.directive';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ShortTextPipe } from './pipes/short-text.pipe';
-import {AuthGuard} from './auth/auth-guard.service';
+import {AuthGuard} from './services/auth-guard.service';
 
 @NgModule({
   declarations: [

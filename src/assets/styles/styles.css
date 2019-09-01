@@ -47,3 +47,7 @@ body {
 .app-link:hover {
   text-decoration: underline;
 }
+.login-component .form-row {
+  display: block;
+}
+/*# sourceMappingURL=styles.css.map */
