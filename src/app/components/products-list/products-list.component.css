@@ -1,3 +1,16 @@
 .product-description {
   margin: 20px 0;
 }
+
+.product-list {
+  list-style: none;
+}
+
+.section-title {
+  margin-top: 40px;
+  font-size: 22px;
+}
+
+.status-wrapper {
+  color: forestgreen;
+}

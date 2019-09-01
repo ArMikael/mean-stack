@@ -1,0 +1,6 @@
+.product-title {
+  font-size: 22px;
+  border: none;
+  outline: none;
+  pointer-events: none;
+}

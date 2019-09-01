@@ -20,7 +20,7 @@ export class NavigationComponent implements OnInit {
     },
     {
       title: 'Products List',
-      path: 'products-list'
+      path: 'products'
     }
   ];
 

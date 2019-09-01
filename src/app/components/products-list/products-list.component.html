@@ -1,18 +1,32 @@
-<h2>
-  Current status: {{ currentStatus }}
-</h2>
+<strong>
+  Current status:
+  <span class="status-wrapper">{{ currentStatus }}</span>
+</strong>
 
-<h3>Set status</h3>
+<h3>Set status (Observable Store)</h3>
 <button (click)="setNewStatus('pending')">Pending</button>
 <button (click)="setNewStatus('approved')">Approved</button>
 <button (click)="setNewStatus('declined')">Declined</button>
 
-<h3>Add new product</h3>
+<h3 class="section-title">Add new product (Directives)</h3>
 <input type="text" placeholder="Product name" [appInputFormat]="'uppercase'">
 <input type="text" placeholder="Product type" [appInputFormat]>
 
+<h3 class="section-title">Products list</h3>
+<ul class="product-list">
+  <li class="product-item">
+    <a [routerLink]="333">333</a>
+  </li>
+  <li class="product-item">
+    <a [routerLink]="444">444</a>
+  </li>
+  <li class="product-item">
+    <a [routerLink]="555">555</a>
+  </li>
+</ul>
+
 <div class="product-description">
-  <h2>{{ productDescription | shortText:70 }}</h2>
+  <h3 class="section-title">{{ productDescription | shortText:70 }}</h3>
   <p class="short-description">
     {{ productDescription }}
   </p>

@@ -12,6 +12,7 @@ import { InputFormatDirective } from './directives/input-format.directive';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ShortTextPipe } from './pipes/short-text.pipe';
 import {AuthGuard} from './services/auth-guard.service';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {AuthGuard} from './services/auth-guard.service';
     InputFormatDirective,
     NavigationComponent,
     ShortTextPipe,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,9 +42,14 @@ import {AuthGuard} from './services/auth-guard.service';
       },
 
       {
-        path: 'products-list',
+        path: 'products',
         component: ProductsListComponent,
         canActivate: [AuthGuard]
+      },
+
+      {
+        path: 'products/:id',
+        component: ProductComponent
       },
 
       {
