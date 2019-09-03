@@ -47,6 +47,11 @@ body {
 .app-link:hover {
   text-decoration: underline;
 }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .login-component .form-row {
   display: block;
 }

@@ -1,1 +1,16 @@
-<input type="text" #productTitle class="product-title">
+<fieldset>
+  <label class="form-label" for="productTitle">Title</label>
+  <input class="form-input" id="productTitle" type="text" #productTitle class="product-title">
+</fieldset>
+
+<fieldset>
+  <label class="form-label" for="productPrice">Price</label>
+  <input class="form-input" id="productPrice" type="number" [formControl]="productPrice">
+</fieldset>
+
+<fieldset>
+  <label class="form-label" for="productDescription">Description</label>
+  <input class="form-input" id="productDescription" type="text" [formControl]="productDescription">
+</fieldset>
+
+

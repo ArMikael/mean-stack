@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-product',
@@ -12,12 +13,17 @@ export class ProductComponent implements OnInit, AfterViewInit {
 
   productId: number;
   @ViewChild('productTitle') productTitle: ElementRef;
+  productPrice: FormControl;
+  productDescription: FormControl;
 
   ngOnInit() {
     this.router.params.subscribe((params) => {
       this.productId = params.id;
       console.log('Current product: ', this.productId);
     });
+
+    this.productPrice = new FormControl(0);
+    this.productDescription = new FormControl('No description was added yet.');
   }
 
   ngAfterViewInit(): void {
