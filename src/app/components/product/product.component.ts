@@ -1,6 +1,8 @@
 import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs/internal/Observable';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-product',
@@ -24,14 +26,14 @@ export class ProductComponent implements OnInit, AfterViewInit {
 
     this.productPrice = new FormControl(0, [Validators.required, Validators.maxLength(10)]);
     this.productDescription = new FormControl('No description was added yet.',
-      [validateMinLength, Validators.maxLength(255)]);
+      [validateMinLength], validateAsyncMaxLength);
 
     this.productPrice.valueChanges.subscribe(value => {
       console.log(value);
     });
 
     this.productDescription.statusChanges.subscribe(status => {
-      console.log(status);
+      console.log(status, this.productDescription.errors);
     });
   }
 
@@ -46,4 +48,13 @@ function validateMinLength(formControl: FormControl) {
   }
 
   return null;
+}
+
+function validateAsyncMaxLength(formControl: FormControl):Observable<null|any> {
+  if (formControl.value.length > 60) {
+    // Angular 6 issue: Observable.of can't be used in this version
+    return of({ validateAsyncMaxLength: { message: 'Should be maximum 60 characters' } });
+  }
+
+  return of(null);
 }
