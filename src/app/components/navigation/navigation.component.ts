@@ -21,6 +21,10 @@ export class NavigationComponent implements OnInit {
     {
       title: 'Products List',
       path: 'products'
+    },
+    {
+      title: 'Admin',
+      path: 'admin'
     }
   ];
 

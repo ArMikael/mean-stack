@@ -11,7 +11,7 @@ import { ProductsListComponent } from './components/products-list/products-list.
 import { InputFormatDirective } from './directives/input-format.directive';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ShortTextPipe } from './pipes/short-text.pipe';
-import {AuthGuard} from './services/auth-guard.service';
+import { AuthGuard } from './services/auth-guard.service';
 import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
@@ -39,6 +39,11 @@ import { ProductComponent } from './components/product/product.component';
       {
         path: 'register',
         component: RegisterComponent
+      },
+
+      {
+        path: 'admin',
+        loadChildren: './modules/admin/admin.module#AdminModule'
       },
 
       {
