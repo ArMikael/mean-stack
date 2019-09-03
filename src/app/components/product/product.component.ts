@@ -17,6 +17,7 @@ export class ProductComponent implements OnInit, AfterViewInit {
   @ViewChild('productTitle') productTitle: ElementRef;
   productPrice: FormControl;
   productDescription: FormControl;
+  productQuantity: FormControl;
 
   ngOnInit() {
     this.router.params.subscribe((params) => {
@@ -27,6 +28,8 @@ export class ProductComponent implements OnInit, AfterViewInit {
     this.productPrice = new FormControl(0, [Validators.required, Validators.maxLength(10)]);
     this.productDescription = new FormControl('No description was added yet.',
       [validateMinLength], validateAsyncMaxLength);
+    this.productQuantity = new FormControl(1, validateLengthDynamically(1, 4));
+
 
     this.productPrice.valueChanges.subscribe(value => {
       console.log(value);
@@ -35,6 +38,10 @@ export class ProductComponent implements OnInit, AfterViewInit {
     this.productDescription.statusChanges.subscribe(status => {
       console.log(status, this.productDescription.errors);
     });
+
+    this.productQuantity.statusChanges.subscribe(status => {
+      console.log(status, this.productQuantity.errors);
+    });
   }
 
   ngAfterViewInit(): void {
@@ -42,6 +49,7 @@ export class ProductComponent implements OnInit, AfterViewInit {
   }
 }
 
+// Custom validator
 function validateMinLength(formControl: FormControl) {
   if (formControl.value.length < 3) {
     return { validateMinLength: { message: 'Should be minimum 3 characters' } };
@@ -50,6 +58,20 @@ function validateMinLength(formControl: FormControl) {
   return null;
 }
 
+// Custom validator with dynamic parameters
+function validateLengthDynamically(min, max) {
+  return function (formControl: FormControl) {
+    if (formControl.value.length < min) {
+      return { validateMinLengthDynamically: { message: 'Should be minimum ' + min + ' characters' } };
+    } else if (formControl.value.length > max) {
+      return { validateMaxLengthDynamically: { message: 'Should be maximum ' + max + ' characters' } };
+    }
+
+    return null;
+  };
+}
+
+// Custom async validator
 function validateAsyncMaxLength(formControl: FormControl):Observable<null|any> {
   if (formControl.value.length > 60) {
     // Angular 6 issue: Observable.of can't be used in this version
