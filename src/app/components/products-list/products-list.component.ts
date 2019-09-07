@@ -1,5 +1,5 @@
-import {Component, OnInit, AfterViewInit} from '@angular/core';
-import {DataStoreService} from '../../services/data-store.service';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { DataStoreService } from '../../services/data-store.service';
 
 @Component({
   selector: 'app-products-list',
@@ -14,6 +14,11 @@ export class ProductsListComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.dataStore.getStatus().subscribe(status => this.currentStatus = status);
+
+    const arr = [1, 3, 5, 7, 9];
+    const bigArray = this.repeatArray(arr);
+    console.log('bigArray: ', bigArray);
+
   }
 
   ngAfterViewInit() {
@@ -22,5 +27,9 @@ export class ProductsListComponent implements OnInit, AfterViewInit {
 
   setNewStatus(status) {
     this.dataStore.setStatus(status);
+  }
+
+  repeatArray(arr) {
+    return [...arr, ...arr].sort();
   }
 }
