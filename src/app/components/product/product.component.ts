@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
 import { of } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product',
@@ -31,7 +32,8 @@ export class ProductComponent implements OnInit, AfterViewInit {
     this.productQuantity = new FormControl(1, validateLengthDynamically(1, 4));
 
 
-    this.productPrice.valueChanges.subscribe(value => {
+    this.productPrice.valueChanges
+      .subscribe(value => {
       console.log(value);
     });
 

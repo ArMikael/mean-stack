@@ -25,6 +25,10 @@ export class NavigationComponent implements OnInit {
     {
       title: 'Admin',
       path: 'admin'
+    },
+    {
+      title: 'Reactive',
+      path: 'reactive'
     }
   ];
 

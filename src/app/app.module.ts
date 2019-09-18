@@ -13,6 +13,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ShortTextPipe } from './pipes/short-text.pipe';
 import { AuthGuard } from './services/auth-guard.service';
 import { ProductComponent } from './components/product/product.component';
+import { ReactiveComponent } from './components/reactive/reactive.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ProductComponent } from './components/product/product.component';
     NavigationComponent,
     ShortTextPipe,
     ProductComponent,
+    ReactiveComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,11 @@ import { ProductComponent } from './components/product/product.component';
       {
         path: 'products/:id',
         component: ProductComponent
+      },
+
+      {
+        path: 'reactive',
+        component: ReactiveComponent
       },
 
       {
