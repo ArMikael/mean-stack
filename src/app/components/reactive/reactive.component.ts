@@ -24,11 +24,11 @@ export class ReactiveComponent implements OnInit {
     this.stream$.subscribe(val => console.log('of: ', val));
 
     // From - Array
-    this.arrayStream$ = from([1, 2, 3])
+    this.arrayStream$ = from(['Front-End', 'Back-End', 'QA'])
       .pipe(
-        scan((acc, val) => acc.concat(val), [])
+        scan((acc, val) => acc.concat(val), <any>[])
       );
-    this.arrayStream$.subscrib(val => console.log('from: ', val));
+    this.arrayStream$.subscribe(val => console.log('from: ', val));
 
 
     this.requestsNumber.valueChanges
