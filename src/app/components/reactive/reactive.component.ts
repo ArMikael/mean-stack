@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { filter, map, scan, take } from 'rxjs/operators';
+import { of, from } from 'rxjs';
 
 @Component({
   selector: 'app-reactive',
@@ -12,9 +13,23 @@ export class ReactiveComponent implements OnInit {
   constructor() { }
   requestsNumber: FormControl;
   streamResults: any;
+  stream$;
+  arrayStream$;
 
   ngOnInit() {
     this.requestsNumber = new FormControl(2);
+
+    // Of
+    this.stream$ = of('JavaScript', 'Angular', 'ReactJS', 'Vue');
+    this.stream$.subscribe(val => console.log('of: ', val));
+
+    // From - Array
+    this.arrayStream$ = from([1, 2, 3])
+      .pipe(
+        scan((acc, val) => acc.concat(val), [])
+      );
+    this.arrayStream$.subscrib(val => console.log('from: ', val));
+
 
     this.requestsNumber.valueChanges
       .pipe(
@@ -26,7 +41,7 @@ export class ReactiveComponent implements OnInit {
       .subscribe((value) => {
         this.streamResults = value;
         console.log(value);
-      }
+      }, null, () => console.log('Complete. Stream closed.')
     );
   }
 
