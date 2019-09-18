@@ -11,6 +11,7 @@ export class ReactiveComponent implements OnInit {
 
   constructor() { }
   requestsNumber: FormControl;
+  streamResults: any;
 
   ngOnInit() {
     this.requestsNumber = new FormControl(2);
@@ -23,9 +24,10 @@ export class ReactiveComponent implements OnInit {
         scan((acc, value) => acc.concat(value), []) // Concatenate all elements in the end
       )
       .subscribe((value) => {
-
-      console.log(value);
-    });
+        this.streamResults = value;
+        console.log(value);
+      }
+    );
   }
 
 }
