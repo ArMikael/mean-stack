@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { filter, map, scan, take } from 'rxjs/operators';
 import { of, from } from 'rxjs';
+import {fromEvent} from 'rxjs/internal/observable/fromEvent';
 
 @Component({
   selector: 'app-reactive',
@@ -31,6 +32,31 @@ export class ReactiveComponent implements OnInit {
     this.arrayStream$.subscribe(val => console.log('from: ', val));
 
 
+    // fromEvent
+    fromEvent(<HTMLCanvasElement>document.getElementById('canvasField'), 'mousemove')
+      .pipe(
+        map((e:MouseEvent|any) => ({
+          x: e.offsetX,
+          y: e.offsetY,
+          ctx: e.target.getContext('2d')
+        }))
+      )
+      .subscribe(
+        (position => {
+          position.ctx.fillRect(position.x, position.y, 2, 2);
+        })
+      );
+
+    const clear$ = fromEvent(document.getElementById('clearCanvas'), 'click');
+
+    clear$.subscribe(() => {
+      const canvas = <HTMLCanvasElement>document.getElementById('canvasField');
+      canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+    });
+
+
+
+    // Operators
     this.requestsNumber.valueChanges
       .pipe(
         take(10), // How many values take from the stream
