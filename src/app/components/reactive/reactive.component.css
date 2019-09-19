@@ -8,4 +8,8 @@
   border: 1px solid gray;
 }
 
-
+.skill-list {
+  list-style: none;
+  margin: 40px 0;
+  padding: 0;
+}

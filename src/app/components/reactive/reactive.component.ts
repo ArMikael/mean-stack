@@ -16,6 +16,7 @@ export class ReactiveComponent implements OnInit {
   streamResults: any;
   stream$;
   arrayStream$;
+  skills: string[];
 
   ngOnInit() {
     this.requestsNumber = new FormControl(2);
@@ -55,7 +56,6 @@ export class ReactiveComponent implements OnInit {
     });
 
 
-
     // Operators
     this.requestsNumber.valueChanges
       .pipe(
@@ -69,6 +69,20 @@ export class ReactiveComponent implements OnInit {
         console.log(value);
       }, null, () => console.log('Complete. Stream closed.')
     );
+
+    this.listenToTripleClick();
+  }
+
+  listenToTripleClick() {
+    this.skills = ['JavaScript', 'Angular', 'ReactJS', 'Vue'];
+    // const skills = document.querySelector('.skill-item');
+
+    const skills$ = fromEvent(document.getElementById('skillsList'), 'click');
+
+    skills$.subscribe((event: MouseEvent) => {
+      console.log(event.detail);
+    });
+
   }
 
 }
