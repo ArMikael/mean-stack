@@ -13,3 +13,14 @@
   margin: 40px 0;
   padding: 0;
 }
+
+.skill-item {
+  padding-left: 8px;
+  user-select: none;
+  border: 1px solid transparent;
+}
+
+.favorite-skill {
+  background: gold;
+  border: 1px solid gray;
+}

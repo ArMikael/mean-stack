@@ -79,8 +79,13 @@ export class ReactiveComponent implements OnInit {
 
     const skills$ = fromEvent(document.getElementById('skillsList'), 'click');
 
-    skills$.subscribe((event: MouseEvent) => {
-      console.log(event.detail);
+    skills$.subscribe((event: MouseEvent|any) => {
+      console.log(event.detail, event.target);
+
+      if (event.detail === 3) {
+        console.log(event);
+        event.target.classList = event.target.classList + ' favorite-skill';
+      }
     });
 
   }
