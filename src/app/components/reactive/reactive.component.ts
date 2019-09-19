@@ -84,7 +84,7 @@ export class ReactiveComponent implements OnInit {
 
       if (event.detail === 3) {
         console.log(event);
-        event.target.classList = event.target.classList + ' favorite-skill';
+        event.target.classList += ' favorite-skill';
       }
     });
 
