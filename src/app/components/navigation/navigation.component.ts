@@ -29,6 +29,10 @@ export class NavigationComponent implements OnInit {
     {
       title: 'Reactive',
       path: 'reactive'
+    },
+    {
+      title: 'Charts',
+      path: 'charts'
     }
   ];
 

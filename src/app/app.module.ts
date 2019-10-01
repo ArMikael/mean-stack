@@ -14,6 +14,7 @@ import { ShortTextPipe } from './pipes/short-text.pipe';
 import { AuthGuard } from './services/auth-guard.service';
 import { ProductComponent } from './components/product/product.component';
 import { ReactiveComponent } from './components/reactive/reactive.component';
+import { ChartsComponent } from './components/charts/charts.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ReactiveComponent } from './components/reactive/reactive.component';
     ShortTextPipe,
     ProductComponent,
     ReactiveComponent,
+    ChartsComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +64,11 @@ import { ReactiveComponent } from './components/reactive/reactive.component';
       {
         path: 'reactive',
         component: ReactiveComponent
+      },
+
+      {
+        path: 'charts',
+        component: ChartsComponent
       },
 
       {
