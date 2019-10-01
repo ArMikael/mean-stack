@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
-import ChartService from '../../services/charts.service';
+import { ChartsService } from '../../services/charts.service';
 
 @Component({
   selector: 'app-charts',
@@ -8,15 +8,36 @@ import ChartService from '../../services/charts.service';
   styleUrls: ['./charts.component.css']
 })
 export class ChartsComponent implements OnInit {
-  options: any[];
-  data: any[];
+  public options: any;
+  data = [2, 3, 7, 9, 17];
 
-  constructor(private chartService: ChartService) { }
+  constructor(private chartsService: ChartsService) { }
 
   ngOnInit() {
-    Highcharts.chart('container', this.options);
-
-    this.chartService.getChartData().subsribe(data => this.data = data;)
+    this.setChartData();
   }
+
+  getChartData() {
+    this.chartsService.getChartData().subscribe(data => {
+      this.data = data;
+      this.setChartData();
+    });
+  }
+
+  setChartData() {
+   this.options = {
+      chart: {
+        type: 'line',
+        height: 400
+      },
+      title: {
+        text: 'Sample Line'
+      },
+      series: this.data
+    };
+
+    Highcharts.chart('container', this.options);
+  }
+
 
 }
