@@ -33,6 +33,10 @@ export class NavigationComponent implements OnInit {
     {
       title: 'Charts',
       path: 'charts'
+    },
+    {
+      title: 'Track By',
+      path: 'trackby'
     }
   ];
 

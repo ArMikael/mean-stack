@@ -1,0 +1,18 @@
+<div>
+  <button (click)="loadSkills()">Load Skills</button>
+</div>
+
+<ul class="skill-list" id="skillsList">
+  <li class="skill-item" *ngFor="let skill of skills; trackBy: trackSkills">
+    <span>{{ skill.name }} </span>
+    <button (click)="removeSkill(skill.id)">Remove</button>
+  </li>
+</ul>
+
+
+
+<div class="new-skill-container">
+  <input type="text" placeholder="Type your new skill" #skill>
+  <button (click)="addSkill(skill.value)">Add Skill</button>
+</div>
+

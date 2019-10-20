@@ -15,6 +15,7 @@ import { AuthGuard } from './services/auth-guard.service';
 import { ProductComponent } from './components/product/product.component';
 import { ReactiveComponent } from './components/reactive/reactive.component';
 import { ChartsComponent } from './components/charts/charts.component';
+import { TrackByComponent } from './components/track-by/track-by.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ChartsComponent } from './components/charts/charts.component';
     ProductComponent,
     ReactiveComponent,
     ChartsComponent,
+    TrackByComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +71,11 @@ import { ChartsComponent } from './components/charts/charts.component';
       {
         path: 'charts',
         component: ChartsComponent
+      },
+
+      {
+        path: 'trackby',
+        component: TrackByComponent
       },
 
       {
