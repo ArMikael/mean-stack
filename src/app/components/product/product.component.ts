@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
-import { of } from 'rxjs';
+import { of, combineLatest } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
 @Component({
@@ -21,9 +21,17 @@ export class ProductComponent implements OnInit, AfterViewInit {
   productQuantity: FormControl;
 
   ngOnInit() {
-    this.router.params.subscribe((params) => {
-      this.productId = params.id;
-      console.log('Current product: ', this.productId);
+    // this.router.params.subscribe((params) => {
+    //   this.productId = params.id;
+    //   console.log('Current product: ', this.productId);
+    // });
+
+    combineLatest([
+      this.router.params,
+      this.router.queryParams
+    ]).subscribe(combined => {
+      const [params, queryParams] = combined;
+      console.log('params', params, 'queryParams', queryParams);
     });
 
     this.productPrice = new FormControl(0, [Validators.required, Validators.maxLength(10)]);
