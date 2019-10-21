@@ -1,0 +1,16 @@
+.load-skills-container {
+  margin: 20px 0;
+}
+
+.button {
+  transition: background-color .3s;
+}
+
+.button:hover {
+  background-color: cornsilk;
+}
+
+.skill-name {
+  display: inline-block;
+  min-width: 120px;
+}
