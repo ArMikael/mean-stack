@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import {action, computed, observable} from 'mobx-angular';
+import { MobXStore } from '../../app.mobx-store';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -9,25 +9,20 @@ import {action, computed, observable} from 'mobx-angular';
 })
 export class MobxComponent implements OnInit {
 
-  constructor() { }
-
-  @observable status: string;
-  @observable type: string;
-
+  constructor(private store: MobXStore) { }
+  status;
+  type;
+  fullStatus: string;
 
   ngOnInit() {
+    this.fullStatus = this.store.fullStatus;
   }
 
-  @action setStatus(status) {
-    this.status = status;
+  setStatus(status) {
+    this.store.setStatus(status);
   }
 
-  @action setType(type) {
-    this.type = type;
+  setType(type) {
+    this.store.setType(type);
   }
-
-  @computed get fullStatus() {
-    return `Type: ${this.type} ' with status: ${this.status}`;
-  }
-
 }

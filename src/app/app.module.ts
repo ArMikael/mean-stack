@@ -17,7 +17,8 @@ import { ReactiveComponent } from './components/reactive/reactive.component';
 import { ChartsComponent } from './components/charts/charts.component';
 import { TrackByComponent } from './components/track-by/track-by.component';
 import { MobxComponent } from './components/mobx/mobx.component';
-import {MobxAngularModule} from 'mobx-angular';
+import { MobxAngularModule } from 'mobx-angular';
+import { MobXStore } from './app.mobx-store';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,7 @@ import {MobxAngularModule} from 'mobx-angular';
 
     ])
   ],
-  providers: [],
+  providers: [MobXStore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
