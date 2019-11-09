@@ -16,6 +16,7 @@ import { ProductComponent } from './components/product/product.component';
 import { ReactiveComponent } from './components/reactive/reactive.component';
 import { ChartsComponent } from './components/charts/charts.component';
 import { TrackByComponent } from './components/track-by/track-by.component';
+import { MobxComponent } from './components/mobx/mobx.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { TrackByComponent } from './components/track-by/track-by.component';
     ReactiveComponent,
     ChartsComponent,
     TrackByComponent,
+    MobxComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +78,11 @@ import { TrackByComponent } from './components/track-by/track-by.component';
       {
         path: 'trackby',
         component: TrackByComponent
+      },
+
+      {
+        path: 'mobx',
+        component: MobxComponent
       },
 
       {

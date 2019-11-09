@@ -37,6 +37,10 @@ export class NavigationComponent implements OnInit {
     {
       title: 'Track By',
       path: 'trackby'
+    },
+    {
+      title: 'MobX',
+      path: 'mobx'
     }
   ];
 
