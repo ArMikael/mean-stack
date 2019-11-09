@@ -1,3 +1,24 @@
-<p>
-  mobx works!
-</p>
+<strong>
+  Current status:
+  <span class="status-wrapper">{{ status }}</span>
+</strong>
+
+<div>
+  Full status:
+  <span>{{ fullStatus }}</span>
+</div>
+
+
+<div>
+  <h3>Set status (Mobx Store)</h3>
+  <button (click)="setStatus('pending')">Pending</button>
+  <button (click)="setStatus('approved')">Approved</button>
+  <button (click)="setStatus('declined')">Declined</button>
+</div>
+
+<div>
+  <h3>Set type</h3>
+  <button (click)="setType('bug')">Bug</button>
+  <button (click)="setType('task')">Task</button>
+  <button (click)="setType('feature')">Feature</button>
+</div>

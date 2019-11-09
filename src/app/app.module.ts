@@ -17,6 +17,7 @@ import { ReactiveComponent } from './components/reactive/reactive.component';
 import { ChartsComponent } from './components/charts/charts.component';
 import { TrackByComponent } from './components/track-by/track-by.component';
 import { MobxComponent } from './components/mobx/mobx.component';
+import {MobxAngularModule} from 'mobx-angular';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MobxComponent } from './components/mobx/mobx.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MobxAngularModule,
     RouterModule.forRoot([
       {
         path: 'login',
