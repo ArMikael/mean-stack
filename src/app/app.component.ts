@@ -20,6 +20,5 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.dataStore.getStatus().subscribe(newStatus => this.currentStatus = newStatus);
-    // this.fullStatus = this.store.fullStatus;
   }
 }
