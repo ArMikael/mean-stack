@@ -19,6 +19,7 @@ import { TrackByComponent } from './components/track-by/track-by.component';
 import { MobxComponent } from './components/mobx/mobx.component';
 import { MobxAngularModule } from 'mobx-angular';
 import { MobXStore } from './app.mobx-store';
+import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MobXStore } from './app.mobx-store';
     ChartsComponent,
     TrackByComponent,
     MobxComponent,
+    DynamicFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,6 +88,11 @@ import { MobXStore } from './app.mobx-store';
       {
         path: 'mobx',
         component: MobxComponent
+      },
+
+      {
+        path: 'dynamic-form',
+        component: DynamicFormComponent
       },
 
       {

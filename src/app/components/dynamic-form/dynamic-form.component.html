@@ -1,0 +1,27 @@
+<div>Type: {{ formType }}</div>
+
+<section class="form-section" [ngSwitch]="formType">
+  <ng-container #incidentForm *ngSwitchCase="formTypes.Incident">
+    <form class="dynamic-form">
+      <h2>Incident Form</h2>
+
+    </form>
+  </ng-container>
+
+
+  <ng-container #firefightersForm *ngSwitchCase="formTypes.Firefighters">
+    <form class="dynamic-form">
+      <h2>Firefighters Form</h2>
+
+    </form>
+  </ng-container>
+
+
+  <ng-container #maintenanceForm *ngSwitchCase="formTypes.Maintenance">
+    <form class="dynamic-form">
+      <h2>Maintenance Form</h2>
+    </form>
+  </ng-container>
+
+  <ng-container *ngSwitchDefault>Code Default</ng-container>
+</section>

@@ -23,10 +23,6 @@ export class NavigationComponent implements OnInit {
       path: 'products'
     },
     {
-      title: 'Admin',
-      path: 'admin'
-    },
-    {
       title: 'Reactive',
       path: 'reactive'
     },
@@ -41,6 +37,10 @@ export class NavigationComponent implements OnInit {
     {
       title: 'MobX',
       path: 'mobx'
+    },
+    {
+      title: 'Dynamic Form',
+      path: 'dynamic-form'
     }
   ];
 
