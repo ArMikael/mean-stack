@@ -17,3 +17,21 @@
   <button (click)="setType('task')">Task</button>
   <button (click)="setType('feature')">Feature</button>
 </div>
+
+<ul class="incident-list">
+  <li class="incident-list-item" *ngFor="let incident of store.state.incidentList">
+    <span>
+      Incident: {{ incident.title }}
+    </span>
+    <span>
+      - {{ incident.type }}
+    </span>
+  </li>
+</ul>
+
+<section class="add-incident-section">
+  <h3>Add new Incident</h3>
+  <input type="text" placeholder="Incident Title" [(ngModel)]="incidentTitle">
+  <input type="text" placeholder="Incident Type" [(ngModel)]="incidentType">
+  <button (click)="addIncident()">Add Incident</button>
+</section>

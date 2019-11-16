@@ -1,22 +1,28 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnChanges, OnInit } from '@angular/core';
 import { MobXStore } from '../../app.mobx-store';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-mobx',
   templateUrl: './mobx.component.html',
   styleUrls: ['./mobx.component.css']
 })
-export class MobxComponent implements OnInit {
+export class MobxComponent implements OnInit, OnChanges {
 
-  constructor(private store: MobXStore) { }
+  constructor(public store: MobXStore) { }
   status;
   type;
   fullStatus: string;
+  incidentType: string;
+  incidentTitle: string;
+  incidentList: any[];
 
   ngOnInit() {
     this.fullStatus = this.store.fullStatus;
   }
+
+  // ngOnChanges() {
+  //   this.incidentList = this.store.state.incidentList;
+  // }
 
   setStatus(status) {
     this.store.setStatus(status);
@@ -24,5 +30,10 @@ export class MobxComponent implements OnInit {
 
   setType(type) {
     this.store.setType(type);
+  }
+
+  addIncident() {
+    const incident = { title: this.incidentTitle, type: this.incidentType };
+    this.store.addIncident(incident);
   }
 }

@@ -3,21 +3,29 @@ import { action, computed, observable } from 'mobx-angular';
 
 @Injectable()
 export class MobXStore {
-  @observable status = '';
-  @observable type = '';
+  @observable state: any = {
+    status: '',
+    type: '',
+    incidentList: []
+  };
 
   @computed
   get fullStatus() {
-    return `type - ${this.type} with status - ${this.status}`;
+    return `type - ${this.state.type} with status - ${this.state.status}`;
   }
 
   @action
   setStatus(newStatus) {
-    this.status = newStatus;
+    this.state.status = newStatus;
   }
 
   @action
   setType(newType) {
-    this.type = newType;
+    this.state.type = newType;
+  }
+
+  @action
+  addIncident(newIncident) {
+    this.state.incidentList.push(newIncident);
   }
 }
